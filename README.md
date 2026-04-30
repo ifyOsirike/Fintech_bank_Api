@@ -21,7 +21,8 @@ This system supports customer onboarding (KYC), account management, and transact
 * External API: NIBSS (for identity verification & transfers)
 
 ### 📁 Project Structure
-**src/
+*/
+src/
 │
 ├── config/
 │   └── db.js
@@ -49,4 +50,4 @@ This system supports customer onboarding (KYC), account management, and transact
 │   └── nibss.js
 │
 └── server.js
-**
+*/
