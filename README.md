@@ -13,3 +13,40 @@ This system supports customer onboarding (KYC), account management, and transact
 * Transaction history
 * Transaction status tracking
 * Centralized error handling
+
+### Tech Stack
+* Backend: Node.js, Express
+* Database: MongoDB (Mongoose)
+* Authentication: JWT
+* External API: NIBSS (for identity verification & transfers)
+
+### 📁 Project Structure
+**src/
+│
+├── config/
+│   └── db.js
+│
+├── controllers/
+│   ├── authController.js
+│   ├── accountController.js
+│   └── transactionController.js
+│
+├── models/
+│   ├── customerModel.js
+│   ├── accountModel.js
+│   └── transactionModel.js
+│
+├── routes/
+│   ├── authRoute.js
+│   ├── accountRoute.js
+│   └── transactionRoute.js
+│
+├── middleware/
+│   ├── authMiddleware.js
+│   └── errorHandler.js
+│
+├── integrations/
+│   └── nibss.js
+│
+└── server.js
+**
