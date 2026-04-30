@@ -21,7 +21,7 @@ This system supports customer onboarding (KYC), account management, and transact
 * External API: NIBSS (for identity verification & transfers)
 
 ### 📁 Project Structure
-*/
+```
 src/
 │
 ├── config/
@@ -50,4 +50,57 @@ src/
 │   └── nibss.js
 │
 └── server.js
-*/
+```
+
+
+📌 API Endpoints
+🧑 Auth
+Method	Endpoint	Description
+POST	/api/auth/onboard	Register user (BVN or NIN required)
+💳 Accounts
+Method	Endpoint	Description
+POST	/api/accounts	Create account
+GET	/api/accounts/balance	Get account balance
+🔁 Transactions
+Method	Endpoint	Description
+POST	/api/transactions/transfer	Intra-bank transfer
+POST	/api/transactions/interbank	Inter-bank transfer
+GET	/api/transactions/history	Transaction history
+GET	/api/transactions/status/:reference	Transaction status
+🧠 Business Logic Highlights
+Users must provide either BVN or NIN
+Identity is verified via NIBSS API
+Each user can have only one account
+Default account balance: ₦15,000
+Transactions are recorded with:
+type (INTRA or INTER)
+status (SUCCESS, FAILED, PENDING)
+⚠️ Error Handling
+
+All errors are handled through a centralized middleware:
+
+{
+  "message": "Error description"
+}
+🔒 Security Notes
+JWT used for authentication
+Passwordless system (relies on identity verification)
+Sensitive operations require authentication token
+
+⚠️ Note: For production, consider adding:
+
+OTP authentication
+Rate limiting
+Data encryption for BVN/NIN
+🚀 Future Improvements
+🔐 OTP-based login system
+💳 Deposit & withdrawal endpoints
+📊 Transaction analytics
+🧾 Account statements (PDF/CSV)
+⚡ Retry & queue system for transfers
+🛡️ Role-based access control
+👨‍💻 Author
+
+Ifeanyi Osirike
+Backend Engineer | Fintech Enthusiast
+
